@@ -1,18 +1,23 @@
 {
-  "Name": "Example.Mod",
-  "Description": "A cool mod that does cool stuff",
+  "Name": "DocsDumper",
+  "Description": "Dump script classes to rst files",
   "Version": "1.0.0",
-
   "LoadPriority": 1,
   "ConVars": [],
   "Scripts": [
     {
-      "Path": "example.nut",
-      "RunOn": "SERVER",
+      "Path": "parsed.nut",
+      "RunOn": "SERVER || CLIENT"
+    },
+    {
+      "Path": "docsdumper.nut",
+      "RunOn": "SERVER || CLIENT",
+      "ServerCallback": {
+        "After": "DocsDumper_Init"
+      },
       "ClientCallback": {
-        "Before": "example_callback"
+        "After": "DocsDumper_Init"
       }
     }
-  ],
-  "Localisation": []
+  ]
 }
